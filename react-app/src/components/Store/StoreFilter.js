@@ -12,7 +12,7 @@ import StoreTable from "./StoreTable";
 export default function StoreFilter({
   stores,
   setStores,
-  setShow,
+  setShowModal,
   setStoreInModal,
 }) {
   const [filterText, setFilterText] = useState("");
@@ -20,7 +20,7 @@ export default function StoreFilter({
 
   // Handle button click event
   const handleButtonClick = (store) => {
-    setShow(true);
+    setShowModal(true);
     setStoreInModal(store);
   };
 

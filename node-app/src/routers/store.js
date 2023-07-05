@@ -25,7 +25,7 @@ router.get("/api/stores/:AccountId", async (req, res) => {
     );
 
     if (filteredStores.length === 0) {
-      return res.status(404).send({ message: "No stores found" });
+      return res.status(200).send({ message: "No stores found" });
     }
 
     // Map the filtered stores to the desired format
