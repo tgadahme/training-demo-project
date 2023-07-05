@@ -1,11 +1,20 @@
 import React from "react";
 import StoreRow from "./StoreRow";
+import Modal from "../Modal/Modal";
+import StoreModal from "./StoreModal";
 
 /**
  * The StoreTable component displays a table of stores.
- * It receives the stores array, filterText, and handleButtonClick function as props.
+ * It also consists of a modal for displaying detailed store information.
  */
-export default function StoreTable({ stores, filterText, handleButtonClick }) {
+export default function StoreTable({
+  stores,
+  filterText,
+  handleButtonClick,
+  handleCloseModal,
+  showModal,
+  storeInModal,
+}) {
   const rows = [];
 
   // Check if stores and filterText are provided
@@ -22,25 +31,36 @@ export default function StoreTable({ stores, filterText, handleButtonClick }) {
     });
 
     return (
-      <div className="container-table">
-        {/* Table */}
-        <table className="table">
-          {/* Table Header */}
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Locality</th>
-              <th>Region</th>
-              <th>Postal Code</th>
-              <th></th>
-            </tr>
-          </thead>
+      <div>
+        <div className="container-table">
+          {/* Table */}
+          <table className="table">
+            {/* Table Header */}
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Locality</th>
+                <th>Region</th>
+                <th>Postal Code</th>
+                <th></th>
+              </tr>
+            </thead>
 
-          {/* Table Body */}
-          <tbody>{rows}</tbody>
-        </table>
+            {/* Table Body */}
+            <tbody>{rows}</tbody>
+          </table>
+        </div>
+        {/* Store Details Modal */}
+        <Modal
+          title="Store Details"
+          onClose={handleCloseModal}
+          show={showModal}
+          storeInModal={storeInModal}
+        >
+          <StoreModal storeInModal={storeInModal} />
+        </Modal>
       </div>
     );
   } else {
