@@ -97,6 +97,11 @@
   margin-left: 5px;
 }
 
+.store-count {
+  margin-top: 10px;
+  color: #13a040;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .table {

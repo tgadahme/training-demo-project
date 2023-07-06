@@ -38,7 +38,7 @@ export default function StoreTable({
             {/* Table Header */}
             <thead>
               <tr>
-                <th>Id</th>
+                <th>Store Id</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Locality</th>

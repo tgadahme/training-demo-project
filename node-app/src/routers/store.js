@@ -12,10 +12,10 @@ const router = express.Router();
  */
 router.get("/api/stores/:AccountId", async (req, res) => {
   try {
-    const AccountId = parseInt(req.params.AccountId);
+    const AccountId = req.params.AccountId;
 
     // Check if AccountId is an integer
-    if (!Number.isInteger(AccountId)) {
+    if (!AccountId.match(/^\d+$/)) {
       return res
         .status(200)
         .send({ message: "Please enter a valid Account Id" });

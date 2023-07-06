@@ -40,7 +40,7 @@ export default function StoreContainer() {
     try {
       if (filterText !== "") {
         const response = await fetch(
-          `https://hme-dev-lab-demo.azurewebsites.net/api/stores/${filterText}`
+          `${process.env.REACT_APP_ENDPOINT}${filterText}`
         );
         const data = await response.json();
         if (data && data.message) {
